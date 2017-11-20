@@ -1,0 +1,37 @@
+var sumOfArray = require('../sumOfArray');
+//My Input
+var arr = [1,2,3,4];
+var emptyArr = [];
+var num = 1;
+var undefinedtest = undefined;
+//Try Make currying
+var check = 'Test for input';
+function checkTypeOf(msg){
+    return function deepProcess(input){
+        var output = Object.prototype.toString.call(input);
+        var outPutSlice = output.slice(8);
+        var outputSubStr = outPutSlice.substring(0,outPutSlice.length -1);
+        return msg.concat(' : ').concat(outputSubStr);
+    } 
+}
+
+//Assign to variable currying
+var typeChecker = checkTypeOf(check);
+
+//Start Test
+test(typeChecker(arr), function () {
+    var result = sumOfArray(arr);
+    expect(result).toBe(10);
+ });
+ test(typeChecker(emptyArr), function () {
+    var result = sumOfArray(emptyArr);
+    expect(result).toBe(0);
+ });
+ test(typeChecker(num), function () {
+    var result = sumOfArray(num);
+    expect(result).toBe(false);
+ });
+ test(typeChecker(undefinedtest), function () {
+    var result = sumOfArray(undefinedtest);
+    expect(result).toBe(false);
+ });

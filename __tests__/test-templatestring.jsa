@@ -1,0 +1,15 @@
+var printPattern = require('../printPattern');
+//Start Test
+test('Testr for input String', function () {
+    var result = printPattern('t');
+    expect(result).toBe('*'+'\n'+'**t*'+'\n'+'****');
+ });
+ test('Testr for input number', function () {
+    var result = printPattern(6);
+    expect(result).toBe(false);
+ });
+ test('Testr for input Array', function () {
+    var result = printPattern([1,2,3,4]);
+    expect(result).toBe(false);
+ });
+
