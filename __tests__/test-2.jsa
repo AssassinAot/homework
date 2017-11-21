@@ -1,0 +1,27 @@
+const doMath = require('../doMath');
+
+//Success Test
+test('Test for do Math Add', () => {
+const result = doMath("add",1,2,3);
+expect(result).toBe(6);
+ });
+test('Test for do Math Multiply', () => {
+    const result = doMath("mul",1,4,5);
+    expect(result).toBe(20);
+     });
+
+//Failure case 
+test('Test for do Math subtract', () => {
+    const result = doMath("sub",1,4,5);
+    expect(result).toBe(false);
+});
+test('Test for do wrong input but still can add', () => {
+    const result = doMath("add",1,'a',5);
+    expect(result).toBe(6);
+});
+
+test('Test for do undefined sending but need perform add', () => {
+    const result = doMath(undefined,1,4,5);
+    expect(result).toBe(10);
+});
+
